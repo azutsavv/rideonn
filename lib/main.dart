@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rideonn/forgotpasscode.dart';
+import 'package:rideonn/homepage.dart';
 import 'package:rideonn/signup.dart';
 import 'package:rideonn/welcome.dart';
 
@@ -18,7 +20,9 @@ class MyApp extends StatelessWidget {
       initialRoute: 'signup',
       routes: {
         'welcome':(context) => welcome(),
-        'signup':(context) => signup()
+        'signup':(context) => signup(),
+        'homepage':(context) => homepage(),
+        'forgotpasscode':(context) => forgotpasscode(),
 
       },
     );

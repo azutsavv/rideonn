@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class welcome extends StatefulWidget {
-  welcome({Key? key}) : super(key: key);
+class forgotpasscode extends StatefulWidget {
+  forgotpasscode({Key? key}) : super(key: key);
 
   @override
-  State<welcome> createState() => _welcomeState();
+  State<forgotpasscode> createState() => _forgotpasscodedState();
 }
 
-class _welcomeState extends State<welcome> {
+class _forgotpasscodedState extends State<forgotpasscode> {
   final _formkey = GlobalKey<FormState>();
 
   var email = "";
-  var password = "";
+  
 
   final emailController = TextEditingController();
-  final passcodeController = TextEditingController();
+  
 
   @override
   void dispose() {
     emailController.dispose();
-    passcodeController.dispose();
+    
     super.dispose();
   }
 
@@ -45,6 +45,18 @@ class _welcomeState extends State<welcome> {
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic),
                   )),
+                  SizedBox(height: 10,),
+                  Container(
+                    
+                     margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.34, left: 90),
+                     child: Text('forgot passcode \na link will be sent to you ',
+                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14
+                     ),
+                     ),
+
+                  ),
               SingleChildScrollView(
                 child: Container(
                   margin: EdgeInsets.only(
@@ -75,22 +87,7 @@ class _welcomeState extends State<welcome> {
                         SizedBox(
                           height: 12,
                         ),
-                        TextFormField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                                fillColor: Color.fromARGB(255, 212, 191, 191),
-                                filled: true,
-                                hintText: 'passcode',
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                )),
-                            controller: passcodeController,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'please enter password';
-                              }
-                              return null;
-                            }),
+                       
                         SizedBox(
                           height: 50,
                         ),
@@ -107,43 +104,14 @@ class _welcomeState extends State<welcome> {
                               if (_formkey.currentState!.validate()) {
                                 setState(() {
                                   email = emailController.text;
-                                  password = passcodeController.text;
+                                  
                                 });
                               }
-                              Navigator.pushNamed(context, 'homepage');
                             },
-                            child: Text('Sign in')),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Forgot Password ?',
-                                  style: TextStyle(
-                                    color: Color.fromARGB(2255, 190, 29, 96),
-                                  ),
-                                ))
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(context, 'signup');
-                                },
-                                child: Text(
-                                  'New User  ?',
-                                  style: TextStyle(
-                                    color: Color.fromARGB(2255, 190, 29, 96),
-                                  ),
-                                ))
-                          ],
-                        )
+                            child: Text('Send')),
+                        
+                        
+                        
                       ],
                     ),
                   ),
