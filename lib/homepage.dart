@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rideonn/bikelist.dart';
 import 'package:rideonn/bikewidget.dart';
 import 'package:rideonn/classbike.dart';
@@ -13,7 +14,7 @@ class homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.grey[600],
         body: Container(
           margin: EdgeInsets.only(
               top: MediaQuery.of(context).size.height * 0.1, left: 20,right: 20),
@@ -24,12 +25,13 @@ class homepage extends StatelessWidget {
                 
                 child: Text(
                   'Choose your Bike',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 190, 29, 96),
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic,
+                  style: GoogleFonts.syne(
+                    color: Color.fromARGB(255, 5, 18, 23),
+                    fontSize: 28,
+                    fontWeight: FontWeight.w700,
+                    
                   ),
+                  
                 ),
               ),
               SizedBox(

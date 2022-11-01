@@ -110,7 +110,7 @@ class _welcomeState extends State<welcome> {
                                   password = passcodeController.text;
                                 });
                               }
-                              Navigator.pushNamed(context, 'homepage');
+                              Navigator.pushNamed(context, 'login');
                             },
                             child: Text('Sign in')),
                         SizedBox(
@@ -120,7 +120,9 @@ class _welcomeState extends State<welcome> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () => Navigator.pushNamed(context, 'forgotpasscode'),
+                                  
+                                
                                 child: Text(
                                   'Forgot Password ?',
                                   style: TextStyle(

@@ -1,28 +1,28 @@
+import 'dart:math';
+
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class signup extends StatefulWidget {
-  signup({Key? key}) : super(key: key);
+  const signup({Key? key}) : super(key: key);
   @override
   State<signup> createState() => _signupState();
 }
 
 class _signupState extends State<signup> {
   final _formkey = GlobalKey<FormState>();
-  var name = "";
-  var email = "";
-  var password = "";
+  String name = '', email = '', passcode = '';
 
   final namecontroller = TextEditingController();
+  final passcodecontroller = TextEditingController();
   final emailcontroller = TextEditingController();
-  final passwordcontroller = TextEditingController();
 
   @override
   void dispose() {
-    emailcontroller.dispose();
     namecontroller.dispose();
-    passwordcontroller.dispose();
+    emailcontroller.dispose();
+    passcodecontroller.dispose();
     super.dispose();
   }
 
@@ -32,6 +32,7 @@ class _signupState extends State<signup> {
             image: DecorationImage(
                 image: AssetImage('assets/login.jpeg'), fit: BoxFit.fill)),
         child: Scaffold(
+          key: _formkey,
           backgroundColor: Colors.transparent,
           body: Stack(
             children: [
@@ -52,9 +53,9 @@ class _signupState extends State<signup> {
                       left: 30,
                       right: 30),
                   child: Column(
-                    key: _formkey,
                     children: [
                       TextFormField(
+                        onChanged: (value) => {name = value},
                         decoration: InputDecoration(
                             fillColor: Color.fromARGB(255, 212, 191, 191),
                             filled: true,
@@ -64,18 +65,18 @@ class _signupState extends State<signup> {
                             )),
                         controller: namecontroller,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'enter name';
-                          } else if (!value.contains(' ')) {
-                            return 'give space between first and last name';
+                          if (!name.isEmpty || name == null) {
+                            return 'enter your name';
+                          } else if (!name.contains(' ')) {
+                            return 'provide space between first and last name';
                           }
-                          return null;
                         },
                       ),
                       SizedBox(
                         height: 8,
                       ),
                       TextFormField(
+                        onChanged: (value) => {email = value},
                         decoration: InputDecoration(
                             fillColor: Color.fromARGB(255, 212, 191, 191),
                             filled: true,
@@ -85,18 +86,18 @@ class _signupState extends State<signup> {
                             )),
                         controller: emailcontroller,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'enter email';
-                          } else if (!value.contains('@')) {
-                            return 'enter valid email';
+                          if (!email.isEmpty || passcode == null) {
+                            return 'enter your email';
+                          } else if (!name.contains('@')) {
+                            return 'enter valid mail';
                           }
-                          return null;
                         },
                       ),
                       SizedBox(
                         height: 8,
                       ),
                       TextFormField(
+                        onChanged: (value) => {passcode = value},
                         obscureText: true,
                         decoration: InputDecoration(
                             fillColor: Color.fromARGB(255, 212, 191, 191),
@@ -105,12 +106,13 @@ class _signupState extends State<signup> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             )),
-                        controller: passwordcontroller,
+                        controller: passcodecontroller,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'enter password';
+                          if (!passcode.isEmpty) {
+                            return 'enter your password';
+                          } else if (passcode.length < 6) {
+                            return 'password must contain 6 character';
                           }
-                          return null;
                         },
                       ),
                       SizedBox(
@@ -151,11 +153,9 @@ class _signupState extends State<signup> {
                                   Color.fromARGB(2255, 190, 29, 96))),
                           onPressed: () {
                             if (_formkey.currentState!.validate()) {
-                              setState(() {
-                                email = emailcontroller.text;
-                                password = passwordcontroller.text;
-                                name = namecontroller.text;
-                              });
+                              email = emailcontroller.text;
+                              passcode = passcodecontroller.text;
+                              name = namecontroller.text;
                             }
                           },
                           child: Text('Sign Up')),

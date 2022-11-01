@@ -18,12 +18,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       
       debugShowCheckedModeBanner: false,
-      initialRoute: 'homepage',
+      initialRoute: 'signup',
       routes: {
         'welcome':(context) => welcome(),
         'signup':(context) => signup(),
-        'homepage':(context) => homepage(),
         'forgotpasscode':(context) => forgotpasscode(),
+        'login':(context) => homepage(),
+        
        
 
       },

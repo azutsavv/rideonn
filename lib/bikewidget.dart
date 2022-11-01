@@ -13,7 +13,7 @@ class bikecard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.all(10),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.7,
         width: MediaQuery.of(context).size.width * 0.7,
@@ -48,41 +48,118 @@ class bikecard extends StatelessWidget {
                       padding:  EdgeInsets.all(5.0),
                       child: Text(bike.name,
                   style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 28,
                       fontStyle: FontStyle.italic,
                       color: Color.fromARGB(255, 7, 5, 5),
                       fontWeight: FontWeight.bold
                   ),
                   ),
-                  
-                  
+                  ),
+                  SizedBox(height: 10,),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      children: [
+                        
+                        Padding(padding: EdgeInsets.all(3)),
+                        Text('Top Speed  :  ',
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20
+                        ),),
+                        
+                        Text( bike.topSpeed.toString(),
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          
+                        ),)
+                      ],
+                    ),
                   ),
                   Padding(
-                      
-                      padding:  EdgeInsets.all(.0),
-                      child: Text('Top Speed',
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontStyle: FontStyle.italic,
-                      color: Color.fromARGB(255, 7, 5, 5),
-                      fontWeight: FontWeight.bold
-                  ),
-                  ),
-                  
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      children: [
+                        
+                        Padding(padding: EdgeInsets.all(3)),
+                        Text('Mileage  :  ',
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20
+                        ),),
+                        
+                        Text( bike.mileage.toString(),
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          
+                        ),)
+                      ],
+                    ),
                   ),
                   Padding(
-                      
-                      padding:  EdgeInsets.all(.0),
-                      child: Text(  bike.topSpeed.toString(),
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontStyle: FontStyle.italic,
-                      color: Color.fromARGB(255, 7, 5, 5),
-                      fontWeight: FontWeight.bold
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      children: [
+                        
+                        Padding(padding: EdgeInsets.all(3)),
+                        Text('Engine  :  ',
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20
+                        ),),
+                        
+                        Text( bike.engine.toString(),
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          
+                        ),)
+                      ],
+                    ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      children: [
+                        
+                        Padding(padding: EdgeInsets.all(3)),
+                        Text('Price  :  ',
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20
+                        ),),
+                        
+                        Text( bike.rental.toString(),
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          
+                        ),)
+                      ],
+                    ),
                   ),
+
                   
-                  )
+                  
+                   
                     
                     ],
                 ),
@@ -99,17 +176,19 @@ class bikecard extends StatelessWidget {
                   color: Colors.grey[900]
                   
                 ),
-                child: Center(
-                  child: Text('Book Now',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22
+                child: TextButton(
+                  onPressed: () => Navigator.pushNamed(context, 'dfsgdf'),
+                  child:  Text('Book Now',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22
+                      
+                    ),
                     
-                  ),
+                    
+                    ),
                   
-                  
-                  ),
                 ),
               ),
             ),
