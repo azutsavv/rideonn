@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:rideonn/bikelist.dart';
+import 'package:rideonn/bookingpage.dart';
 import 'package:rideonn/classbike.dart';
 
 class bikecard extends StatelessWidget {
@@ -176,19 +177,22 @@ class bikecard extends StatelessWidget {
                   color: Colors.grey[900]
                   
                 ),
-                child: TextButton(
-                  onPressed: () => Navigator.pushNamed(context, 'dfsgdf'),
-                  child:  Text('Book Now',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22
+                child: Container(
+                   padding: EdgeInsets.all(8),
+                   margin: EdgeInsets.only(left: 40),
+                  child: InkWell(
+                    onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (context) =>booking(bike: bike, index: index),)),
+                    child: Text('Book Now',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22
+                        
+                      ),
                       
-                    ),
-                    
-                    
-                    ),
-                  
+                      
+                      ),
+                  ),
                 ),
               ),
             ),

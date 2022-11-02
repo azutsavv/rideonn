@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
@@ -12,7 +14,9 @@ class signup extends StatefulWidget {
 
 class _signupState extends State<signup> {
   final _formkey = GlobalKey<FormState>();
-  String name = '', email = '', passcode = '';
+  String? name = '';
+  String? email = '';
+  String? passcode = '';
 
   final namecontroller = TextEditingController();
   final passcodecontroller = TextEditingController();
@@ -40,11 +44,9 @@ class _signupState extends State<signup> {
                   margin: EdgeInsets.only(top: 90, left: 90),
                   child: Text(
                     'Welcome to \n  RideOnn',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 190, 29, 96),
-                        fontSize: 45,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic),
+                    style: GoogleFonts.acme(
+                      color: Colors.pink,
+                      fontSize: 45                   )
                   )),
               SingleChildScrollView(
                 child: Container(
@@ -65,11 +67,12 @@ class _signupState extends State<signup> {
                             )),
                         controller: namecontroller,
                         validator: (value) {
-                          if (!name.isEmpty || name == null) {
+                          if (name!.isEmpty || name == null) {
                             return 'enter your name';
-                          } else if (!name.contains(' ')) {
+                          } else if (name!.contains(' ')) {
                             return 'provide space between first and last name';
                           }
+                          return null;
                         },
                       ),
                       SizedBox(
@@ -86,11 +89,12 @@ class _signupState extends State<signup> {
                             )),
                         controller: emailcontroller,
                         validator: (value) {
-                          if (!email.isEmpty || passcode == null) {
+                          if (email!.isEmpty || passcode == null) {
                             return 'enter your email';
-                          } else if (!name.contains('@')) {
+                          } else if (name!.contains('@')) {
                             return 'enter valid mail';
                           }
+                          return null;
                         },
                       ),
                       SizedBox(
@@ -108,11 +112,12 @@ class _signupState extends State<signup> {
                             )),
                         controller: passcodecontroller,
                         validator: (value) {
-                          if (!passcode.isEmpty) {
+                          if (passcode!.isEmpty) {
                             return 'enter your password';
-                          } else if (passcode.length < 6) {
+                          } else if (passcode!.length < 6) {
                             return 'password must contain 6 character';
                           }
+                          return null;
                         },
                       ),
                       SizedBox(

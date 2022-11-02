@@ -14,7 +14,7 @@ class BikeList {
         name: 'Hayabusa ',
         engine: '1340CC',
         mileage: '11Kmpl',
-        rental: '2000',
+        rental: '8000',
         topSpeed: 299.0,
         image: 'assets/busa.png'),
 
