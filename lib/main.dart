@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       
       debugShowCheckedModeBanner: false,
-      initialRoute: 'welcome',
+      initialRoute: 'signup',
       routes: {
         'welcome':(context) => welcome(),
         'signup':(context) => signup(),
