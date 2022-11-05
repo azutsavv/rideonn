@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "202724479186",
+    "project_id": "rideonn-aa879",
+    "storage_bucket": "rideonn-aa879.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202724479186:android:3104306c2d6f30f5bc1d0b",
+        "android_client_info": {
+          "package_name": "com.example.rideonn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202724479186-8dtesfrfdnfp2l756mrppbd1n37iuioo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rideonn",
+            "certificate_hash": "bd022bae9de9ecd8c30ae419c915815b33e179cc"
+          }
+        },
+        {
+          "client_id": "202724479186-kksp9tck75q5jh8ga5om4n7112rl8sjk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9CwIdzDEzj-z-Hh2KoxwTw0k7mKt3NPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202724479186-kksp9tck75q5jh8ga5om4n7112rl8sjk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
