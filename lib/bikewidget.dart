@@ -169,9 +169,13 @@ class bikecard extends StatelessWidget {
             Positioned(
               bottom: 20,
               left: 40,
-              child: Container(
+            
+              child:
+              
+              Container(
                 width: MediaQuery.of(context).size.width*0.5,
                 height: 40,
+                
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.grey[900]
@@ -179,14 +183,15 @@ class bikecard extends StatelessWidget {
                 ),
                 child: Container(
                    padding: EdgeInsets.all(8),
-                   margin: EdgeInsets.only(left: 40),
+                   alignment: Alignment.center,
                   child: InkWell(
                     onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (context) =>booking(bike: bike, index: index),)),
                     child: Text('Book Now',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 22
+                        fontSize: 22,
+                        
                         
                       ),
                       

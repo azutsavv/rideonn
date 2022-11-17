@@ -10,32 +10,39 @@ class booked extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.blue.shade100,
-        
-
-      ),
-      child:
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+    return Scaffold(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width:  MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          color: Colors.blue.shade100,
           
-          Icon(FontAwesomeIcons.circleCheck,
-          size: 100,
-          color: Colors.green.shade600,),
-          SizedBox(height: 20,),
-
-          Text('Booking has been confirmed. \nYou will recieive am email shortly.',
-          style: GoogleFonts.besley(
-            fontSize: 20,
-            color: Colors.black
-
-          ) 
-          ),
-        ],
-
-      )
+    
+        ),
+        child:
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            
+            Icon(FontAwesomeIcons.circleCheck,
+            size: 100,
+            color: Colors.green.shade600,),
+            SizedBox(height: 20,),
+    
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Booking has been confirmed. \nYou will recieive an email shortly.',
+              style: GoogleFonts.besley(
+                fontSize: 20,
+                color: Colors.black
+    
+              ) 
+              ),
+            ),
+          ],
+    
+        )
+      ),
     );
   }
 }
