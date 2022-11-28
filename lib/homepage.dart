@@ -43,7 +43,7 @@ class homepage extends StatelessWidget {
                   itemCount: BikeList.bike.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) =>
-                      Expanded(child: bikecard(bike: BikeList.bike[index], index: index) ),
+                      bikecard(bike: BikeList.bike[index], index: index),
                 ),
               )
             ],

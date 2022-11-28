@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -28,15 +29,24 @@ class _welcomeState extends State<welcome> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/login.jpeg'), fit: BoxFit.fill)),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+                    colors: [
+                        Colors.blueGrey,
+                        Colors.grey
+                        
+
+                    ],
+                    begin: FractionalOffset.bottomCenter,
+                    end: FractionalOffset.center
+                  ),
+                  ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Stack(
             children: [
               Container(
-                  margin: EdgeInsets.only(top: 90, left: 90),
+                  margin: EdgeInsets.only(top: 90, left: MediaQuery.of(context).size.width * 0.3),
                   child: Text(
                     'Welcome to \n  RideOnn',
                     style: TextStyle(
@@ -103,14 +113,29 @@ class _welcomeState extends State<welcome> {
                                 elevation: MaterialStateProperty.all(10),
                                 backgroundColor: MaterialStateProperty.all(
                                     Color.fromARGB(2255, 190, 29, 96))),
-                            onPressed: () {
+                            onPressed: () async {
                               if (_formkey.currentState!.validate()) {
                                 setState(() {
                                   email = emailController.text;
                                   password = passcodeController.text;
                                 });
                               }
-                              Navigator.pushNamed(context, 'login');
+                              try {
+                                final credential = await FirebaseAuth.instance
+                                    .signInWithEmailAndPassword(
+                                        email: email, password: password).then((value) {
+                                          Navigator.pushNamed(context, 'login');
+                                        })
+                                        ;
+                                
+                              } on FirebaseAuthException catch (e) {
+                                if (e.code == 'user-not-found') {
+                                  print('No user found for that email.');
+                                } else if (e.code == 'wrong-password') {
+                                  print(
+                                      'Wrong password provided for that user.');
+                                }
+                              }
                             },
                             child: Text('Sign in')),
                         SizedBox(
@@ -120,9 +145,8 @@ class _welcomeState extends State<welcome> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TextButton(
-                                onPressed: () => Navigator.pushNamed(context, 'forgotpasscode'),
-                                  
-                                
+                                onPressed: () => Navigator.pushNamed(
+                                    context, 'forgotpasscode'),
                                 child: Text(
                                   'Forgot Password ?',
                                   style: TextStyle(

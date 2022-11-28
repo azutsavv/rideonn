@@ -29,14 +29,23 @@ class _forgotpasscodedState extends State<forgotpasscode> {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/login.jpeg'), fit: BoxFit.fill)),
+        gradient: LinearGradient(
+                    colors: [
+                        Colors.blueGrey,
+                        Colors.grey
+                        
+
+                    ],
+                    begin: FractionalOffset.bottomCenter,
+                    end: FractionalOffset.center
+                  ),
+                  ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Stack(
             children: [
               Container(
-                  margin: EdgeInsets.only(top: 90, left: 90),
+                  margin: EdgeInsets.only(top: 90, left: MediaQuery.of(context).size.width*0.3),
                   child: Text(
                     'Welcome to \n  RideOnn',
                     style: TextStyle(

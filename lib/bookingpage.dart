@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rideonn/bikelist.dart';
 import 'package:rideonn/bookingpage.dart';
 import 'package:rideonn/classbike.dart';
+import 'package:rideonn/main.dart';
 
 class booking extends StatefulWidget {
   final Bike bike;
@@ -52,7 +53,7 @@ class _bookingState extends State<booking> {
                       begin: FractionalOffset.bottomCenter,
                       end: FractionalOffset.center),
                 ),
-                height: MediaQuery.of(context).size.height * 0.4,
+                height: MediaQuery.of(context).size.height * 0.5,
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: Column(
                   children: [
@@ -76,7 +77,7 @@ class _bookingState extends State<booking> {
                           Text('price(per/day) :',
                               style: GoogleFonts.acme(
                                   fontSize: 25, color: Colors.black)),
-                          Text(widget.bike.rental,
+                          Text((widget.bike.rental).toString(),
                               style: GoogleFonts.acme(
                                   fontSize: 25, color: Colors.black))
                         ],
@@ -163,6 +164,23 @@ class _bookingState extends State<booking> {
                     SizedBox(
                       height: 20,
                     ),
+
+
+                  
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30,right: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                      Text('Final Price  : ',
+                      style: GoogleFonts.acme(fontSize: 25, color: Colors.black) ,),
+                      Text((widget.bike.rental*days).toString(),
+                      style:  GoogleFonts.acme(fontSize: 25, color: Colors.black),) 
+                      ],
+
+                    ),
+                  ),
+                  SizedBox(height: 20,),
                     SizedBox(
                       height: 40,
                       width: 280,

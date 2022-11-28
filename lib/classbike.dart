@@ -3,7 +3,7 @@ class Bike {
   final String mileage;
  final double topSpeed;
   final String engine;
-  final String rental;
+  final int rental;
   final String image;
 
   Bike({
